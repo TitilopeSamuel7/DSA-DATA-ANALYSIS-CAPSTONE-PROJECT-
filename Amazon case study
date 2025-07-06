@@ -1,0 +1,184 @@
+# 📊 Amazon Sales Data Cleaning & Advanced 
+Analysis in Excel
+
+## 📝 Project Overview
+This project demonstrates cleaning, exploring, and analyzing an Amazon sales dataset using Microsoft Excel.  
+It highlights **data wrangling**, **pivot table mastery**, **KPI setups**, and **dynamic reporting**, showcasing how to turn raw data into actionable insights.
+
+---
+
+## 🧹 Data Cleaning Process
+**Tools:** Microsoft Excel  
+**Dataset:** Amazon Case Study
+
+✅ **Product Name:**  
+- Original product names were very long.  
+- Used `LEFT` and `PROPER` functions to shorten and standardize them for better readability in reports.
+
+✅ **Category Column:**  
+- Contained categories, subcategories, sub-subcategories all in a single field.  
+- Used **Text-to-Columns (Delimiter)** to split this into **four separate columns**, ensuring clear data segmentation.
+
+✅ **Duplicates:**  
+- The initial dataset had **1,465 records**.  
+- After removing duplicates, achieved **1,351 clean records**, improving data quality.
+
+---
+
+## 🚀 Advanced Analytical Tasks & Pivot Table Strategies
+
+### 1️⃣ Average discount percentage by product category
+- **Calculated column:**
+
+= (Actual Price - Discounted Price) / Actual Price * 100
+
+- **Pivot Table:**
+- Rows: Category
+- Values: Discount % → Average
+
+---
+
+### 2️⃣ Number of products under each category
+- **Pivot Table:**
+- Rows: Category
+- Values: Product Name → Count (Distinct)
+
+---
+
+### 3️⃣ Total number of reviews per category
+- **Pivot Table:**
+- Rows: Category
+- Values: Rating Count → Sum
+
+---
+
+### 4️⃣ Products with the highest average ratings
+**My Modifications:**  
+- Pivot Table setup:
+- Rows: Product Name
+- Values: Rating → set to **Average**
+- Sorted Average Rating column from Largest to Smallest (Data tab → Sort).
+- Applied **Top 10** filter in Value Field Settings.
+
+---
+
+### 5️⃣ Average actual vs discounted price by category
+- **Pivot Table:**
+- Rows: Category
+- Values: 
+  - Actual Price → Average
+  - Discounted Price → Average
+
+---
+
+### 6️⃣ Products with highest number of reviews
+**My Modifications:**  
+- Pivot Table:
+- Rows: Product Name
+- Values: Rating Count
+- Applied **Top 10** filter in Value Field Settings.
+
+---
+
+### 7️⃣ KPI table for discount insights
+**My Modifications:**  
+- Pivot Table:
+- Rows: Product Name
+- Values: 
+  - Sum of Discount %
+  - Count of Product Name
+- Formatted Discount % to show **1 decimal place**:
+- Value Field Settings → Number Format → Percentage → 1 decimal.
+
+---
+
+### 8️⃣ Distribution of product ratings
+- **Pivot Table:**
+- Rows: Rating (rounded or grouped)
+- Values: Product Name → Count
+
+---
+
+### 9️⃣ Total potential revenue by category
+- **Calculated column:**
+
+= Actual Price * Rating Count
+
+- **Pivot Table:**
+- Rows: Category
+- Values: Potential Revenue → Sum
+
+---
+
+### 10️⃣ Number of unique products per price range bucket
+- **Created Price Bucket column:**
+
+=IF(Discounted Price < 200, "<₹200", IF(Discounted Price <= 500, "₹200–₹500", ">₹500"))
+
+- **Pivot Table:**
+- Rows: Price Bucket
+- Values: Product Name → Count
+
+---
+
+### 11️⃣ How rating relates to discount levels
+- Created discount buckets:
+
+=IF([@Discount%]<=10,"0-10%", IF([@Discount%]<=20,"11-20%", IF([@Discount%]<=30,"21-30%", ...)))
+
+- **Pivot Table:**
+- Rows: Discount Bucket
+- Values: Average Rating → Average
+- Inserted **line chart** to show trend of ratings across discount levels.
+
+---
+
+### 12️⃣ Products with fewer than 1,000 reviews
+**My Modifications:**  
+- Pivot Table:
+- Rows: Product Name
+- Values: Reviews
+- Applied filter: **Value Field < 1000**.
+
+---
+
+### 13️⃣ Categories with products having the highest discounts
+**My Modifications:**  
+- Pivot Table:
+- Rows: Category
+- Values: Discount %
+- Set Value Field to **Max** to identify highest discount by category.
+
+---
+
+### 14️⃣ Top 5 products by combined score (ratings + reviews)
+**My Modifications:**  
+- Created calculated column `Score`:
+
+= Average Rating + (Rating Count / 1000)
+
+- **Pivot Table:**
+- Rows: Product Name
+- Values: Score
+- Applied **Top 5 filter** to showcase best performing products.
+
+---
+
+## 🛠️ Tools & Techniques Used
+- **Excel functions:** LEFT, PROPER, IF, calculated fields.  
+- **Pivot Tables:** Advanced layouts, Top N filters, Value Field Settings (Average, Max, Sum).  
+- **Charts:** Line & potential scatter plots.  
+- **Formatting:** Custom percentage display, decimal precision, KPI design.
+
+---
+
+## 🚀 Final Outcome
+✅ Delivered a **comprehensive Excel workbook** that cleans, segments, analyzes, and visualizes Amazon product sales data.  
+✅ Provided clear KPIs, top product insights, and revenue opportunities.
+
+---
+
+📬 **Connect with me on GitHub to explore more data projects!**
+
+
+---
